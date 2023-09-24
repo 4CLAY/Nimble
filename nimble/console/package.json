@@ -1,0 +1,8 @@
+{
+  "name": "console",
+  "version": "1.0.0",
+  "description": "nimble's console frontend",
+  "main": "index.js",
+  "repository": "https://github.com/4CLAY/Nimble",
+  "license": "MIT"
+}
