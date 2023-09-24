@@ -1,0 +1,22 @@
+name: Lint PR
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  main:
+    name: Validate PR title
+    runs-on: ubuntu-22.04
+    steps:
+      - name: check pr semantic
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          requireScope: true
+          subjectPattern: ^NIM-[0-9]+ .+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't inlude linear issue, such as AUT-128. Please create an issue in linear
+            and add it to the pull request title.
